@@ -96,6 +96,7 @@ class circular_vector
     {
       return second_span_;
     }
+
     template<class U>
     class iterator
     {
@@ -163,6 +164,16 @@ class circular_vector
           }
 
           return result;
+        }
+
+        constexpr bool operator==(const iterator other)
+        {
+          return current_ == other.current_;
+        }
+
+        constexpr bool operator!=(const iterator other)
+        {
+          return !(*this == other);
         }
 
       private:
